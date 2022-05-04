@@ -46,13 +46,18 @@ app.use(bodyParser.json())
 
 
 
-// Make post request with JSON data or form data
+// Make post request with JSON data 
 
-app.post("/user", (req, res)=>{
-    const name = req.body.name;
-    const age = req.body.age;
-    res.send(`Welcome ${name}, you are ${age} years old.`)
 
+app.get('/register', (req, res)=>{
+    res.sendFile(__dirname + "/index.html");
+})
+
+
+app.post("/register", (req, res)=>{
+     const fullName = req.body.fullName;
+     const age = req.body.age;
+     res.send(`Your name is ${fullName} & age is ${age}`);
 })
 
 
